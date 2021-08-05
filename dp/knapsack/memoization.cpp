@@ -7,7 +7,7 @@ using namespace std;
 
 #define N 100   //max value as given in the problem
 #define W 10000 //max value as given in the problem
-int dp[N][W];
+int dp[N + 1][W + 1];
 // dont forget to initialize it with -1 in main() function
 
 int kp(vector<int> &wt, vector<int> &val, int capacity, int n)
