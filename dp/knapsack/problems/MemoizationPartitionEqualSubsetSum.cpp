@@ -13,7 +13,7 @@ bool isSubsetPossible(vector<int> &nums, int n, int k, vector<vector<int>> &dp)
     //base case
     // if n==0 return 0
     // if k==0 return 1 // null is always a subset
-    // the order is important of if because both if will write on the [0][0] box, only the last if will persist
+    // the order is important of if because both if will write on dp[0][0], only the latest if() will persist
     if (n == 0)
     {
         dp[n][k] = 0;
@@ -35,7 +35,7 @@ bool isSubsetPossible(vector<int> &nums, int n, int k, vector<vector<int>> &dp)
     // current element will fit into the subset
     else if (nums[n - 1] <= k)
     {
-        // Try both the cases, include the current object and dont include it, even if one results in the subset being of k size return true, that yes it is possible.
+        // Try both the cases, include the current object and dont include it, even if one results in the subset being of k size -> return true which means -> yes, it is possible.
         ans = isSubsetPossible(nums, n - 1, k - nums[n - 1], dp) || isSubsetPossible(nums, n - 1, k, dp);
         dp[n][k] = ans;
         return ans;
