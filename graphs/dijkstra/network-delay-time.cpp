@@ -2,7 +2,6 @@
 
 #include<bits/stdc++.h>
 using namespace std;
-
 class Solution {
     void addEdge(vector<pair<int,int>> adj[], int u, int v, int k)
     {
@@ -22,7 +21,7 @@ class Solution {
         }
     }
     
-    void helper(vector<pair<int,int>> adj[], int source, int curr, int n, vector<int> &visited, vector<int> &dist)
+    void helper(vector<pair<int,int>> adj[], int curr, vector<int> &visited, vector<int> &dist)
     {
         //mark curr as visited
         visited[curr] = 1;
@@ -47,7 +46,7 @@ class Solution {
         if(newCurr == 0)
             return;
         
-        helper(adj, source, newCurr, n, visited, dist);
+        helper(adj, newCurr, visited, dist);
         
         
     }
@@ -72,7 +71,7 @@ class Solution {
         
         int minNode = getMin(dist, visited);
         
-        helper(adj, start, minNode, n, visited, dist);
+        helper(adj, minNode, visited, dist);
         
         return dist;
     }
